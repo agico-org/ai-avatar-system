@@ -1,5 +1,5 @@
-fastapi>=0.115.2,<1.0.0
-uvicorn[standard]>=0.27.0,<1.0.0
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
 python-multipart==0.0.6
 python-jose[cryptography]==3.3.0
 # bcrypt used directly for password hashing — passlib 1.7.4 (2020) is
@@ -38,7 +38,7 @@ torchaudio==2.6.0
 transformers==4.46.3
 accelerate==0.26.1
 diffusers==0.29.0
-numpy==1.25.2
+numpy==1.26.3
 opencv-python==4.9.0.80
 Pillow==10.2.0
 librosa==0.11.0
@@ -52,7 +52,7 @@ faster-whisper>=1.0.0
 # Chatterbox by Resemble AI — fastest open-source TTS w/ voice cloning + 23 langs
 # (en, es, fr, de, it, pt, pl, tr, ru, nl, ar, zh, ja, ko, da, el, fi, he, hi,
 # ms, no, sv, sw). Replaces deprecated Coqui XTTS v2.
-chatterbox-tts==0.1.6
+chatterbox-tts==0.1.3
 # Edge TTS — free Microsoft neural voices used as the first fallback when
 # Chatterbox is unavailable (no API key, no GPU). gTTS remains the last resort.
 edge-tts>=6.1.0

@@ -37,8 +37,7 @@ COPY requirements.txt .
 
 # Pre-install numpy and cython to handle legacy packages like pkuseg
 # that import numpy at setup.py runtime (fails with pip's build isolation)
-# Using 1.25.2 because chatterbox-tts requires numpy<1.26.0
-RUN pip install --no-cache-dir numpy==1.25.2 cython
+RUN pip install --no-cache-dir numpy==1.26.3 cython
 
 # Install Python dependencies with --no-build-isolation so legacy setup.py
 # scripts can find numpy in the main environment. --no-deps prevents re-installing torch.
