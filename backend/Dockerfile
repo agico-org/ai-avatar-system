@@ -21,11 +21,19 @@ RUN apt-get update && apt-get install -y \
     && ln -sf python3 /usr/bin/python \
     && ln -sf pip3 /usr/bin/pip
 
+# Upgrade pip and build tools
+RUN pip install --upgrade pip setuptools wheel
+
 # Copy requirements
 COPY requirements.txt .
 
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Pre-install numpy and cython to handle legacy packages like pkuseg
+# that import numpy at setup.py runtime (fails with pip's build isolation)
+RUN pip install --no-cache-dir numpy==1.26.3 cython
+
+# Install Python dependencies with --no-build-isolation so legacy setup.py
+# scripts can find numpy in the main environment
+RUN pip install --no-cache-dir --no-build-isolation -r requirements.txt
 
 # Install PyTorch with CUDA 11.8 (matches base image)
 RUN pip install --no-cache-dir \
